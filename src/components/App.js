@@ -9,7 +9,7 @@ class App extends Component {
         
         <Hello name="Dico" />
 
-        <Name placeholder="Digite seu nome aqui" OnChange={this.MudaNome} />
+        <Name placeholder="Digite seu nome aqui" onChange={this.mudaNome} />
 
       </div>
     );

@@ -4,12 +4,13 @@ export default class Name extends Component {
 
     constructor() {
         super();
+        this.mudaNome = this.mudaNome.bind(this);
     }
 
-    MudaNome() {
-        return this.setState({
-            document.querySelector("#hello-field").value = document.querySelector("#campo-value").value;
-        });
+    mudaNome(e) {
+        console.log(e);
+        
+        this.setState({ nome: this.target.value });
     } 
 
     render() {
