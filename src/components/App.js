@@ -6,8 +6,12 @@ class App extends Component {
     return (
       <div className="App container">
         
-        <Hello />
-
+        <div className="col-12">
+        
+          <Hello />
+        
+        </div>
+        
       </div>
     );
   }
