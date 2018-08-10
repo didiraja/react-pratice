@@ -14,7 +14,7 @@ export default class NameList extends Component {
                 <p className="text-center pt-3">Digite seu nome nome e pressione Enter</p>
 
                 <ul className="w-25 mx-auto">
-                    <li>nome teste</li>
+                    {this.props.namesList}
                 </ul>
 
             </React.Fragment>
