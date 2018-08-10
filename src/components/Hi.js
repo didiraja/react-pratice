@@ -12,24 +12,34 @@ export default class Hello extends Component {
             names: ["nome teste", "outro teste", "mais um teste"],
         }
 
+        this.digitado = [...this.state.names];
+
+        this.novoNome = "";
+
     }
 
     mudaNome(e) {
         this.setState({
             name: e.target.value
         });
+
+        this.novoNome = e.target.value;
+        
     }
     
-    trocaNome(e) {
-        // this.setState({
-        //     name: e.target.value
-        // });
+    adicionaNome(e) {
+        e.preventDefault();
+
+        this.digitado.push(this.novoNome);
+
+        this.setState({
+            names: this.digitado
+        });
     }
 
     render() {
 
-        const namesMap = this.state.names;
-        const namesList = namesMap.map( (name, key) => <li key={key}>{name}</li> );
+        const namesList = this.digitado.map( (name, key) => <li key={key}>{name}</li> );
 
         return (
             <React.Fragment>
@@ -37,11 +47,16 @@ export default class Hello extends Component {
 
                 <NameList {...this.state} namesList={namesList} />
 
-                <input
-                    id="campo-value" type="text" placeholder={this.state.placeholder}
-                    className="form-control w-50 text-center mx-auto my-4" 
-                    onChange={this.mudaNome.bind(this)} onSubmit={this.trocaNome.bind(this)}
-                />
+                <form onSubmit={this.adicionaNome.bind(this)}>
+                    <div className="form-group">
+
+                        <input id="campo-value" type="text" placeholder={this.state.placeholder}
+                            className="form-control w-50 text-center mx-auto my-4" 
+                            onChange={this.mudaNome.bind(this)}
+                        />
+
+                    </div>
+                </form>
             </React.Fragment>
         );
     }
