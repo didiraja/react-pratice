@@ -35,6 +35,8 @@ export default class Hello extends Component {
         this.setState({
             names: this.digitado
         });
+
+        document.querySelector('#campo-value').value = '';
     }
 
     render() {
