@@ -36,7 +36,8 @@ export default class Hello extends Component {
             names: this.digitado
         });
 
-        document.querySelector('#campo-value').value = '';
+        this.refs.campoValue.value = '' ;
+
     }
 
     render() {
@@ -52,7 +53,7 @@ export default class Hello extends Component {
                 <form onSubmit={this.adicionaNome.bind(this)}>
                     <div className="form-group">
 
-                        <input id="campo-value" type="text" placeholder={this.state.placeholder}
+                        <input ref="campoValue" type="text" placeholder={this.state.placeholder}
                             className="form-control w-50 text-center mx-auto my-4" 
                             onChange={this.mudaNome.bind(this)}
                         />
